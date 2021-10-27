@@ -13,7 +13,9 @@ Route::middleware([])->prefix('admin')->group(function () {
     Route::get("/", [ClubController::class, 'showAdmin'])->name('admin.show');
 
     // Edit Club details
-    Route::get("/update", [ClubController::class, 'storeAdmin'])->name('admin.store');
+    // Route::get("/edit", [ClubController::class, 'editAdmin'])->name('admin.edit');
+
+    // Update Club details
 
 });
 

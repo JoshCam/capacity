@@ -10,7 +10,7 @@
           <a class="nav-link" href="{{ route('admin.show') }}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{{ route('admin.store') }}">Edit Club</a>
+          <a class="nav-link" href="{{ route('clubs.edit', $club) }}">Edit Club</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">Stats</a>

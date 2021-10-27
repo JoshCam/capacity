@@ -46,12 +46,6 @@ class ClubController extends Controller
         //
     }
 
-    public function storeAdmin(Request $request)
-    {
-        $club = Auth::user()->club;
-        return view('admin.updateClub', compact('club'));
-    }
-
     /**
      * Display the specified resource.
      *
@@ -78,7 +72,8 @@ class ClubController extends Controller
      */
     public function edit(Club $club)
     {
-        //
+        $club = Auth::user()->club;
+        return view('admin.editClub', compact('club'));
     }
 
     /**
@@ -90,8 +85,13 @@ class ClubController extends Controller
      */
     public function update(Request $request, Club $club)
     {
-        //
+        $club = Auth::user()->club;
+        return redirect()->route('admin.show', $club);
     }
+    // public function updateAdmin(Request $request, Club $club)
+    // {
+    //     return "hello";
+    // }
 
     /**
      * Remove the specified resource from storage.
