@@ -19,12 +19,6 @@ class ClubController extends Controller
         return view('clubs.index', compact('clubs'));
     }
 
-    // public function indexAdmin()
-    // {
-    //     $clubs = Club::paginate(9);
-    //     return view('admin.index', compact('clubs'));
-    // }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -85,13 +79,17 @@ class ClubController extends Controller
      */
     public function update(Request $request, Club $club)
     {
+        // Function updates club details from Admin panel
         $club = Auth::user()->club;
+        $club->name = $request->name;
+        $club->image = $request->image;
+        $club->capacity = $request->capacity;
+        $club->description = $request->description;
+
+        $club->save();
+
         return redirect()->route('admin.show', $club);
     }
-    // public function updateAdmin(Request $request, Club $club)
-    // {
-    //     return "hello";
-    // }
 
     /**
      * Remove the specified resource from storage.

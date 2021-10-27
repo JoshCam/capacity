@@ -9,6 +9,16 @@ class Club extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+    'name',
+    'image',
+    'occupancy',
+    'capacity',
+    'description',
+    'lat',
+    'lng',
+    ];
+
     public function users() {
         return $this->hasMany(User::class);
     }
