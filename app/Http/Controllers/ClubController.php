@@ -84,6 +84,7 @@ class ClubController extends Controller
         $club->name = $request->name;
         $club->image = $request->image;
         $club->capacity = $request->capacity;
+        $club->address = $request->address;
         $club->description = $request->description;
 
         $club->save();

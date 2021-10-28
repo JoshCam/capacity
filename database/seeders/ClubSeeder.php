@@ -28,6 +28,7 @@ class ClubSeeder extends Seeder
             'capacity' => 1600,
             'lat' => 51.4493462385265,
             'lng' => -2.575916398129784,
+            'address' => '74-78 Avon St, Bristol BS2 0PX',
         ]);
 
         // Lakota
@@ -39,6 +40,7 @@ class ClubSeeder extends Seeder
             'capacity' => 1200,
             'lat' => 51.46164074840383,
             'lng' => -2.589604385114776,
+            'address' => "76 Upper York St, St Paul's, Bristol BS2 8QN",
         ]);
 
         // The Fleece
@@ -50,6 +52,7 @@ class ClubSeeder extends Seeder
             'capacity' => 450,
             'lat' => 51.45227575085397,
             'lng' => -2.589330819455274,
+            'address' => "12 St Thomas St, Redcliffe, Bristol BS1 6JJ",
         ]);
 
         // SWX
@@ -61,6 +64,7 @@ class ClubSeeder extends Seeder
             'capacity' => 1100,
             'lat' => 51.45669850620307,
             'lng' => -2.592181167917093,
+            'address' => "15 Nelson St, Bristol BS1 2JY",
         ]);
 
         // Basement 45
@@ -72,6 +76,7 @@ class ClubSeeder extends Seeder
             'capacity' => 280,
             'lat' => 51.4535630606814,
             'lng' => -2.6008003628889593,
+            'address' => "8 Frogmore St, Bristol BS1 5NA",
         ]);
 
         // OMG
@@ -83,17 +88,19 @@ class ClubSeeder extends Seeder
             'capacity' => 350,
             'lat' => 51.45330129353256,
             'lng' => -2.601597086229434,
+            'address' => "1-2 Frog Ln, Bristol BS1 5NF",
         ]);
 
         // Thekla
         Club::create([
             'name' => 'Thekla',
-            'image' => 'https://eu-assets.simpleview-europe.com/bristol2014/imageresizer/?image=%2Fdmsimgs%2FLakota_Day_Stagee_372266743.jpg&action=ProductDetailNew',
+            'image' => 'https://ents24.imgix.net/image/000/299/713/41a05aa5b2e376adf30e64d5ec89133baa731441.jpg?auto=format&fp-x=0.515&fp-y=0.493&crop=focalpoint&w=1920&h=1080',
             'description' => "Thekla is a former cargo ship moored in the Mud Dock area of Bristol's Floating Harbour, England. The ship was built in Germany in 1958 and worked in the coastal trades.",
             'occupancy' => 0,
             'capacity' => 400,
             'lat' => 51.44895874166867,
             'lng' => -2.5941762544315035,
+            'address' => "The Grove, East Mud Dock, Bristol BS1 4RB",
         ]);
 
         // Lola Lo
@@ -105,6 +112,7 @@ class ClubSeeder extends Seeder
             'capacity' => 200,
             'lat' => 51.45658529323293,
             'lng' => -2.6071534278784445,
+            'address' => "67 Queens Rd, Triangle W, Clifton, Bristol BS8 1QL",
         ]);
 
         // Cosies
@@ -116,6 +124,7 @@ class ClubSeeder extends Seeder
             'capacity' => 250,
             'lat' => 51.46083864167233,
             'lng' => -2.586189366694632,
+            'address' => "34 Portland Square, St Paul's, Bristol BS2 8RG",
         ]);
 
         // The Black Swan
@@ -127,6 +136,7 @@ class ClubSeeder extends Seeder
             'capacity' => 700,
             'lat' => 51.48940504562721,
             'lng' => -2.6228034881770124,
+            'address' => "92 Stoke Ln, Bristol BS9 3SP",
         ]);
 
         // The Crofters' Rights
@@ -143,6 +153,7 @@ class ClubSeeder extends Seeder
             'capacity' => 235,
             'lat' => 51.463809135285324,
             'lng' => -2.5899138010760043,
+            'address' => "117-119 Stokes Croft, Cotham, Bristol BS1 3RW",
         ]);
 
         // Attic Bar
@@ -159,6 +170,7 @@ class ClubSeeder extends Seeder
             'capacity' => 150,
             'lat' => 51.46023872940096,
             'lng' => -2.5904680427795865,
+            'address' => "1 North St, St Paul's, Bristol BS1 3PR",
         ]);
 
         // Dojo Lounge
@@ -170,6 +182,7 @@ class ClubSeeder extends Seeder
             'capacity' => 250,
             'lat' => 51.45535842067764,
             'lng' => -2.6004795832615843,
+            'address' => "12-16 Park Row, Bristol BS1 5LJ",
         ]);
 
         // Strange Brew
@@ -181,6 +194,7 @@ class ClubSeeder extends Seeder
             'capacity' => 330,
             'lat' => 51.45636083781547,
             'lng' => -2.5924740826499275,
+            'address' => "10-12 Fairfax St, Bristol BS1 3DB",
         ]);
 
         // The Island
@@ -192,6 +206,7 @@ class ClubSeeder extends Seeder
             'capacity' => 250,
             'lat' => 51.45699226549773,
             'lng' => -2.592740513472202,
+            'address' => "Nelson St, Bristol BS1 2BE",
         ]);
 
     }

@@ -14,24 +14,28 @@
                     <p v-if="errors.length">
                         <b>Please correct the following error(s):</b>
                         <ul>
-                        <li v-for="error in errors">@{{ error }}</li>
+                            <li v-for="error in errors">@{{ error }}</li>
                         </ul>
                     </p>
                     <div class="mb-3">
                         <label for="name" class="form-label">Club Name:</label>
-                        <input v-model="name" type="text" class="form-control" id="name" name="name">
+                        <input v-model="club.name" type="text" class="form-control" id="name" name="name">
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Club Image</label>
-                        <input v-model="image" type="text" class="form-control" id="image" name="image">
+                        <input v-model="club.image" type="text" class="form-control" id="image" name="image">
                     </div>
                     <div class="mb-3">
                         <label for="Capacity" class="form-label">Maximum Capacity</label>
-                        <input v-model="capacity" type="number" class="form-control" id="capacity" name="capacity">
+                        <input v-model.number="club.capacity" type="number" class="form-control" id="capacity" name="capacity">
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Club Address</label>
+                        <input v-model="club.address" type="text" class="form-control" id="address" name="address">
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Club Description</label>
-                        <textarea v-model="description" class="form-control" id="description" name="description"></textarea>
+                        <textarea v-model="club.description" class="form-control" id="description" name="description"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <input type="hidden" name="_method" value="PUT">
@@ -44,15 +48,18 @@
 @section('scripts')
         <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
         <script>
+            let club = {!! $club !!};
             let myVueApp = new Vue({
                 el: "#app",
                 data() {
                     return {
+                        club : club,
                         errors: [],
-                        name: null,
-                        image: null,
-                        capacity: null,
-                        description: null,
+                        name: club.name, // do this to all
+                        image: club.image,
+                        capacity: club.capacity,
+                        address: club.address,
+                        description: club.description,
                     };
                 },
                 mounted() {},
@@ -60,7 +67,7 @@
                 watch: {},
                 methods: {
                     checkForm(e) {
-                        if(this.name && this.image && this.capacity && this.description) {
+                        if(this.name && this.image && this.capacity && this.address && this.description) {
                             return true
                         }
                         
@@ -74,6 +81,9 @@
                         }
                         if (!this.capacity) {
                             this.errors.push('Capacity required.');
+                        }
+                        if (!this.address) {
+                            this.errors.push('Address required.');
                         }
                         if (!this.description) {
                             this.errors.push('Description required.');
