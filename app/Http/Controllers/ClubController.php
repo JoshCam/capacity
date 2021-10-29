@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreEventRequest;
 use App\Models\Club;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +39,16 @@ class ClubController extends Controller
     public function store(Request $request)
     {
         //
+    }
+
+    public function storeEvent(StoreEventRequest $request, Club $club)
+    {
+        // TODO:
+        // Create view for event widget for users & admins
+        // Add middleware to this route so that only an admin of
+        // the specified club can create an event for their club
+        $club->events()->create($request->validated());
+        return "done?";
     }
 
     /**
@@ -80,7 +91,7 @@ class ClubController extends Controller
     public function update(Request $request, Club $club)
     {
         // Function updates club details from Admin panel
-        $club = Auth::user()->club;
+        // $club = Auth::user()->club;
         $club->name = $request->name;
         $club->image = $request->image;
         $club->capacity = $request->capacity;

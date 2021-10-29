@@ -15,8 +15,11 @@ Route::middleware("can:viewAny," . Club::class)->prefix('admin')->group(function
     // Route to logged in admins specific club
     Route::get("/", [ClubController::class, 'showAdmin'])->name('admin.show');
 
-    // Create an event
-    // Route::get("/edit", [ClubController::class, 'editAdmin'])->name('admin.edit');
+    // Access to all Event Resources
+    Route::resource("events", EventController::class);
+
+    Route::middleware('can:update,club')->post('clubs/{club}/events', [ClubController::class, 'storeEvent'])
+    ->name('clubs.events.store');
 });
 
 
@@ -33,7 +36,7 @@ Route::group([], function () {
     Route::resource("clubs", ClubController::class)->except(['index',]);
 
     // Access to all Event Resources
-    Route::resource("events", EventController::class);
+    Route::resource("events", EventController::class)->except(['create','update']);
 });
 
 
