@@ -12,11 +12,14 @@
             style="height: 300px; width: 500px;" 
             class="img-fluid club-image"
         >
-        <div class="col-md-6 col-md-offset-4">
+        <div class="m-2 club-description">
             <p>
                 {{ $club->description }}
             </p>
-            <a href="https://www.google.com/maps/place/{{ $club->address }}" target="_blank" class="btn btn-primary">Get Directions</a>
+            <a href="https://www.google.com/maps/place/{{ $club->address }}" target="_blank" class="btn btn-primary mb-3">Get Directions</a>
         </div>
+    </div>
+    <div class="col-md-6">
+        @include('components.clubs.event')
     </div>
 @endsection

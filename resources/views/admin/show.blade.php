@@ -18,6 +18,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">Upcoming Events</h5>
+                        @include('components.clubs.event')
                     </div>
                 </div>
             </div>

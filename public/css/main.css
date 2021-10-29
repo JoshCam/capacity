@@ -2,3 +2,28 @@
     height: 300px;
     width: 500px;
 }
+
+.event-card {
+    display: flex;
+    flex-direction: row;
+    margin: 0.2em;
+    padding: 0.2em;
+}
+
+.event-image {
+    object-fit: cover;
+    height: 150px;
+    width: 150px;
+    display: inline-block;
+    margin-right: 0.2em;
+}
+
+.event-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.club-description {
+    text-align: justify;
+    text-justify: inter-word;
+}

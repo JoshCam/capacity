@@ -18,6 +18,7 @@ Route::middleware("can:viewAny," . Club::class)->prefix('admin')->group(function
     // Access to all Event Resources
     Route::resource("events", EventController::class);
 
+    // Route to add an event to a club
     Route::middleware('can:update,club')->post('clubs/{club}/events', [ClubController::class, 'storeEvent'])
     ->name('clubs.events.store');
 });

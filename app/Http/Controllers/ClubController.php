@@ -48,7 +48,7 @@ class ClubController extends Controller
         // Add middleware to this route so that only an admin of
         // the specified club can create an event for their club
         $club->events()->create($request->validated());
-        return "done?";
+        return redirect()->route('admin.show', $club);
     }
 
     /**
@@ -59,14 +59,17 @@ class ClubController extends Controller
      */
     public function show(Club $club)
     {
-        return view('clubs.show' , compact('club'));
+        $events = $club->events;
+        return view('clubs.show' , compact('club', 'events'));
     }
 
     // #### HOME PAGE FOR ADMINS #### 
-    public function showAdmin()
+    public function showAdmin(Club $club)
     {
         $club = Auth::user()->club;
-        return view('admin.show' , compact('club'));
+        $events = $club->events;
+
+        return view('admin.show' , compact('club', 'events'));
     }
 
     /**
@@ -91,7 +94,7 @@ class ClubController extends Controller
     public function update(Request $request, Club $club)
     {
         // Function updates club details from Admin panel
-        // $club = Auth::user()->club;
+        // ######TIDY THIS UP - PUT IT IN A VALIDATOR AND SEND IT BACK HERE AS A REQUEST####//
         $club->name = $request->name;
         $club->image = $request->image;
         $club->capacity = $request->capacity;
