@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="col-md-6" id="app">
+    <div class="col-md-6" id="edit-form-app">
         <h1>Update {{ $club->name }}</h1>
         <div class="card">
             <div class="card-body">
@@ -50,7 +50,7 @@
         <script>
             let club = {!! $club !!};
             let myVueApp = new Vue({
-                el: "#app",
+                el: "#edit-form-app",
                 data() {
                     return {
                         club : club,

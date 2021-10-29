@@ -17,9 +17,14 @@ class Club extends Model
     'description',
     'lat',
     'lng',
+    'address',
     ];
 
     public function users() {
         return $this->hasMany(User::class);
+    }
+
+    public function events() {
+        return $this->hasMany(Event::class);
     }
 }

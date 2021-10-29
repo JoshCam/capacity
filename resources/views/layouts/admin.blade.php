@@ -1,5 +1,8 @@
 @extends('layouts.main')
 
+@section('head')
+@endsection
+
 @section('title')
     Admin
 @endsection

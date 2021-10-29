@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\ClubController;
+use App\Http\Controllers\EventController;
 use App\Models\Club;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,7 @@ Route::middleware("can:viewAny," . Club::class)->prefix('admin')->group(function
     // Route to logged in admins specific club
     Route::get("/", [ClubController::class, 'showAdmin'])->name('admin.show');
 
-    // Edit Club details
+    // Create an event
     // Route::get("/edit", [ClubController::class, 'editAdmin'])->name('admin.edit');
 });
 
@@ -31,6 +32,8 @@ Route::group([], function () {
     // Access to resources
     Route::resource("clubs", ClubController::class)->except(['index',]);
 
+    // Access to all Event Resources
+    Route::resource("events", EventController::class);
 });
 
 
