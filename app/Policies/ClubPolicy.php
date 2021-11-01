@@ -54,8 +54,13 @@ class ClubPolicy
      */
     public function update(User $user, Club $club)
     {
-        return true;
         //does user have right role and does club belong to this user
+        return true;
+        // if ($club->id == Auth::user()->club->id) {
+        //     return false;
+        // } else {
+        //     return false;
+        // }
     }
 
     /**

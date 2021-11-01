@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEventRequest;
+use App\Http\Requests\UpdateEventRequest;
 use App\Models\Club;
+use App\Models\Event;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -36,10 +38,9 @@ class EventController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreEventRequest $request)
+    public function store(Request $request)
     {
-        return $request;
-        return redirect()->route('/dashboard');
+        // 
     }
 
     /**
@@ -59,9 +60,10 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Event $event)
     {
-        //
+        $club = Auth::user()->club;
+        return view('events.edit', compact('event', 'club'));
     }
 
     /**
@@ -71,9 +73,11 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateEventRequest $request, Event $event)
     {
-        //
+        $club = Auth::user()->club;
+        $event->update($request->validated());
+        return redirect()->route('admin.show', $club);
     }
 
     /**
@@ -82,8 +86,9 @@ class EventController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Event $event)
     {
-        //
+        $event->delete();
+        return redirect()->route('admin.show')->with('message', 'Event deleted');
     }
 }

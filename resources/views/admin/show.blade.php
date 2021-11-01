@@ -3,6 +3,11 @@
 @section('content')
     <h1>Admin Panel</h1>
         @if ($club->name )
+            @if(Session::has('message'))
+                <div class="alert alert-info">
+                    {{ Session::get('message') }}
+                </div>
+            @endif
             <div class="col-md-6">
                 <h2>{{ $club->name }}</h2>
                 <img class="club-image" src="{{ $club->image }}" alt="">

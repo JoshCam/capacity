@@ -20,6 +20,7 @@
         </div>
     </div>
     <div class="col-md-6">
+        <h2>Upcoming Events</h2>
         @include('components.clubs.event')
     </div>
 @endsection

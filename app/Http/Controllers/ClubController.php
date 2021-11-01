@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEventRequest;
+use App\Http\Requests\UpdateClubRequest;
 use App\Models\Club;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,10 +44,6 @@ class ClubController extends Controller
 
     public function storeEvent(StoreEventRequest $request, Club $club)
     {
-        // TODO:
-        // Create view for event widget for users & admins
-        // Add middleware to this route so that only an admin of
-        // the specified club can create an event for their club
         $club->events()->create($request->validated());
         return redirect()->route('admin.show', $club);
     }
@@ -66,10 +63,11 @@ class ClubController extends Controller
     // #### HOME PAGE FOR ADMINS #### 
     public function showAdmin(Club $club)
     {
+        $user = Auth::user();
         $club = Auth::user()->club;
         $events = $club->events;
 
-        return view('admin.show' , compact('club', 'events'));
+        return view('admin.show' , compact('club', 'events', 'user'));
     }
 
     /**
@@ -91,18 +89,10 @@ class ClubController extends Controller
      * @param  \App\Models\Club  $club
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Club $club)
+    public function update(UpdateClubRequest $request, Club $club)
     {
         // Function updates club details from Admin panel
-        // ######TIDY THIS UP - PUT IT IN A VALIDATOR AND SEND IT BACK HERE AS A REQUEST####//
-        $club->name = $request->name;
-        $club->image = $request->image;
-        $club->capacity = $request->capacity;
-        $club->address = $request->address;
-        $club->description = $request->description;
-
-        $club->save();
-
+        $club->update($request->validated());
         return redirect()->route('admin.show', $club);
     }
 
@@ -114,6 +104,6 @@ class ClubController extends Controller
      */
     public function destroy(Club $club)
     {
-        //
+        $club->delete();
     }
 }
