@@ -12,8 +12,11 @@ Route::get('home', [AuthenticatedSessionController::class, 'checkUserRole']);
 // Need to register some middleware to check if user accessing this route has the admin role
 Route::middleware("can:viewAny," . Club::class)->prefix('admin')->group(function () {
 
-    // Route to logged in admins specific club
+    // Route to show logged in admins their club
     Route::get("/", [ClubController::class, 'showAdmin'])->name('admin.show');
+
+    // Route to show logged in admins their club clicker
+    Route::get("/clicker", [ClubController::class, 'showClicker'])->name('admin.showClicker');
 
     // Access to all Event Resources
     Route::resource("events", EventController::class);

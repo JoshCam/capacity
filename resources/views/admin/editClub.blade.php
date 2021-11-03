@@ -55,7 +55,7 @@
                     return {
                         club : club,
                         errors: [],
-                        name: club.name, // do this to all
+                        name: club.name,
                         image: club.image,
                         capacity: club.capacity,
                         address: club.address,

@@ -10,6 +10,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="/css/main.css">
+    <script src="{{ mix('js/app.js') }}"></script>
     @yield('head')
 
     <title>Capacity @yield('title')</title>

@@ -85,7 +85,7 @@
                         
                         this.errors = [];
 
-                        if (!this.name) {
+                        if (this.name) {
                             this.errors.push('Name required.');
                         }
                         if (!this.image) {

@@ -70,6 +70,13 @@ class ClubController extends Controller
         return view('admin.show' , compact('club', 'events', 'user'));
     }
 
+    // #### HOME PAGE FOR ADMINS #### 
+    public function showClicker()
+    {
+        $club = Auth::user()->club;
+        return view('admin.showClicker', compact('club'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -94,6 +101,14 @@ class ClubController extends Controller
         // Function updates club details from Admin panel
         $club->update($request->validated());
         return redirect()->route('admin.show', $club);
+    }
+
+    public function updateOccupancy(Request $request, Club $club)
+    {
+        // Update clubs current occupancy from API
+        ######## FEELS LIKE THIS NEEDS SOME SORT OF SECURITY??? #########
+        $club->update(['occupancy' => $request->occupancy]);
+        return $club;
     }
 
     /**
