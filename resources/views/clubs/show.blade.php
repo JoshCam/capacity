@@ -9,7 +9,6 @@
         </h1>
 
         <img src="{{ $club->image }}" alt="Club Image" 
-            style="height: 300px; width: 500px;" 
             class="img-fluid club-image"
         >
         <div class="m-2 club-description">
@@ -20,7 +19,12 @@
         </div>
     </div>
     <div class="col-md-6">
-        <h2>Upcoming Events</h2>
-        @include('components.clubs.event')
+        <div class="events-card card">
+            <h2>Upcoming Events</h2>
+            @include('components.clubs.event')
+        </div>
+    </div>
+    <div class="col-md-6">
+        @include('components.clubs.map')
     </div>
 @endsection
