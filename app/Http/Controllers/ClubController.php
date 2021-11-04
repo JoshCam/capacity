@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateClubRequest;
+use App\Http\Resources\ClubResource;
 use App\Models\Club;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -107,6 +108,9 @@ class ClubController extends Controller
     {
         // Update clubs current occupancy from API
         ######## FEELS LIKE THIS NEEDS SOME SORT OF SECURITY??? #########
+        if ($request->message) {
+            return $request->message;
+        }
         $club->update(['occupancy' => $request->occupancy]);
         return $club;
     }
@@ -120,5 +124,19 @@ class ClubController extends Controller
     public function destroy(Club $club)
     {
         $club->delete();
+    }
+
+    public function getClubs(Request $request)
+    {
+        $params = $request->validate([
+            'search' => 'required|min:1'
+        ]);
+
+        $clubs = Club::where('name', 'like' , $params['search'] . '%')
+            ->orderBy('name')
+            ->limit(5)
+            ->get();
+
+        return ClubResource::collection($clubs);
     }
 }

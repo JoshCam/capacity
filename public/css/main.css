@@ -27,3 +27,26 @@
     text-align: justify;
     text-justify: inter-word;
 }
+
+#counter-app {
+    height: 100%;
+}
+
+.clicker {
+    margin-top: 8em;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counter {
+    margin: 0.5em;
+    padding: 0.5em 1em 0.5em 1em;
+    font-size: 72px;
+    border: 1px solid black;
+}
+
+.clicker-btn {
+    font-size: 80px;
+}

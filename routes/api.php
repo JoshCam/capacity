@@ -19,5 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+// API to update current occupancy of club
 Route::put('/clubs/{club}', [ClubController::class, 'updateOccupancy'])->name('clubs.updateOccupancy');
+
+// API to search clubs in DB
+Route::get('/clubs', [clubController::class, 'getClubs'])->name('clubs.search');

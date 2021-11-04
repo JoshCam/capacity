@@ -6,9 +6,12 @@
 
 @section('content')
     <div v-cloak id="counter-app">
-        <button @click="increment">+</button>
-        <div>@{{ count }}</div>
-        <button @click="decrement">-</button>
+        <div class="clicker">
+            <p v-if="error">@{{ error }}</p>
+            <button href="" class="clicker-btn btn" @click="increment">+</button>
+            <div class="counter">@{{ count }}</div>
+            <button class="clicker-btn btn" @click="decrement">-</button>
+        </div>
     </div>
 @endsection
 
@@ -22,6 +25,7 @@
                 return {
                     count: club.occupancy,
                     club: club,
+                    error : "",
                 };
             },
             mounted() {},
@@ -41,13 +45,17 @@
                     this.checkAndSendOccupancy();
                 },
                 checkAndSendOccupancy() {
-                    // if (this.count <= 0 || this.count > this.club.capacity) {
-                    //     request = {message : "occupancy cannot be less than 0 or greater than the maximum capacity"}
-                    // } else {
-
-                    // }
-                    this.club.occupancy = this.count;
-                    window.axios.put(this.counterApiUrl, this.club)
+                    if (this.count <= 0) {
+                        this.count = 0
+                        this.error = "Current capacity cannot be less than 0"
+                    }  else if (this.count > this.club.capacity) {
+                        this.count = this.club.capacity
+                        this.error = "Current capacity cannot be greater than the maximum capacity"
+                    } else {
+                        this.club.occupancy = this.count;
+                        this.error = ""
+                        window.axios.put(this.counterApiUrl, this.club)
+                    }
                 }
             },
         });
