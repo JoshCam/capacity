@@ -1,5 +1,5 @@
 branch-defaults:
-  dev:
+  main:
     environment: Capacity-env
 environment-defaults:
   Capacity-env:
