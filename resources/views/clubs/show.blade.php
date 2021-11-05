@@ -15,7 +15,7 @@
             <p>
                 {{ $club->description }}
             </p>
-            <a href="https://www.google.com/maps/place/{{ $club->address }}" target="_blank" class="btn btn-primary mb-3">Get Directions</a>
+            <!-- <a href="https://www.google.com/maps/place/{{ $club->address }}" target="_blank" class="btn btn-primary mb-3">Get Directions</a> -->
         </div>
     </div>
     <div class="col-md-6">
@@ -25,6 +25,9 @@
         </div>
     </div>
     <div class="col-md-6">
-        @include('components.clubs.map')
+        <div class="map-card">
+            <h2>Find {{ $club->name }}</h2>
+            @include('components.clubs.map')
+        </div>
     </div>
 @endsection

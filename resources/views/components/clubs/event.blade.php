@@ -12,9 +12,10 @@
                 <span>{{ $event->date }}</span>
                 <span>{{ $event->start_time }}</span> -
                 <span>{{ $event->finish_time }}</span>
-                <span><button class="btn btn-success">Buy Tickets</button></span>
                 @if ($user->id ?? '' == $event->club_id)
                     <span><a href="{{ route('events.edit', $event) }}" class="btn btn-success">Edit</a></span>
+                @else
+                    <span><button class="btn btn-success">Buy Tickets</button></span>
                 @endif
             </div>
         </div>

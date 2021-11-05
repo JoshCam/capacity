@@ -2,10 +2,10 @@
     font-family: "Roboto", sans-serif;
 }
 
-/* body {
-    background-color: #1e1d1e;
-    color: #fdfcfd;
-} */
+body {
+    background-color: #1e1d1e !important;
+    color: #fdfcfd !important;
+}
 
 .event-card {
     display: flex;
@@ -60,13 +60,13 @@
     overflow: hidden;
     text-decoration: none;
     color: black;
-    /* color: #fdfcfd; */
-    /* background-color: #2c2a2c; */
+    color: #fdfcfd;
+    background-color: #2c2a2c;
 }
 
 .club-card:hover {
     text-decoration: none;
-    /* color: #fdfcfd; */
+    color: #fdfcfd;
 }
 
 .club-card-img {
@@ -79,6 +79,7 @@
 
 /* ######## EVENTS CARD DISPLAYED TO USERS ######## */
 .events-card {
+    background-color: #2c2a2c !important;
     padding: 1em;
     margin-top: 0.5em;
     margin-bottom: 2em;
@@ -87,7 +88,6 @@
 .map-responsive {
     overflow: hidden;
     padding-bottom: 56.25%;
-    margin-bottom: 2em;
     position: relative;
     height: 0;
 }
@@ -98,4 +98,17 @@
     height: 100%;
     width: 100%;
     position: absolute;
+}
+
+.event-card {
+    background-color: #2c2a2c !important;
+    color: #fdfcfd !important;
+}
+
+/* ######## MAP CARD ####### */
+.map-card {
+    background-color: #2c2a2c !important;
+    padding: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 1em;
 }

@@ -8,7 +8,7 @@
     <div class="col-md-6" id="edit-form-app">
         <h1>Update {{ $club->name }}</h1>
         <div class="card">
-            <div class="card-body">
+            <div class="card-body form-card">
                 <form @submit="checkForm" action="{{ route('clubs.update', $club) }}" method="POST">
                     @csrf
                     <p v-if="errors.length">
