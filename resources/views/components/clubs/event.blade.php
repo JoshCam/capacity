@@ -14,6 +14,8 @@
                 <span>{{ $event->finish_time }}</span>
                 @if ($user->id ?? '' == $event->club_id)
                     <span><a href="{{ route('events.edit', $event) }}" class="btn btn-success">Edit</a></span>
+                @else
+                    <span><button class="btn btn-success">Buy Tickets</button></span>
                 @endif
             </div>
         </div>

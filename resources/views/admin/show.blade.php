@@ -8,9 +8,10 @@
                     {{ Session::get('message') }}
                 </div>
             @endif
+
             <div class="col-md-6">
                 <h2>{{ $club->name }}</h2>
-                <img class="club-image" src="{{ $club->image }}" alt="">
+                <img class="club-image img-fluid" src="{{ $club->image }}" alt="">
                 <p>Useful Info:</p>
                 <ul>
                     <li>Up coming events</li>
@@ -19,12 +20,11 @@
                     <li>Other stuff...</li>
                 </ul>
             </div>
+
             <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Upcoming Events</h5>
-                        @include('components.clubs.event')
-                    </div>
+                <div class="card events-card">
+                    <h5 class="card-title">Upcoming Events</h5>
+                     @include('components.clubs.event')
                 </div>
             </div>
         @else
