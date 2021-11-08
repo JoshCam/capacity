@@ -43,6 +43,15 @@ Route::group([], function () {
     Route::resource("events", EventController::class)->except(['create','update']);
 });
 
+if (app()->environment('local'))
+{
+    Route::get('tinker', [TinkerController::class, 'tinker'])->name('tinker');
+    
+    Route::get('/test', function () {
+        return Club::first()->getOccupancy();
+});
+}
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

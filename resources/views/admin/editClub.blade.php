@@ -7,8 +7,8 @@
 @section('content')
     <div class="col-md-6" id="edit-form-app">
         <h1>Update {{ $club->name }}</h1>
-        <div class="card">
-            <div class="card-body form-card">
+        <div class="card edit-club-card">
+            <div class="card-body edit-club-card">
                 <form @submit="checkForm" action="{{ route('clubs.update', $club) }}" method="POST">
                     @csrf
                     <p v-if="errors.length">
@@ -19,23 +19,23 @@
                     </p>
                     <div class="mb-3">
                         <label for="name" class="form-label">Club Name:</label>
-                        <input v-model="name" v-text="club.name" type="text" class="form-control" id="name" name="name">
+                        <input v-model="name" v-text="club.name" type="text" class="form-control custom-input" id="name" name="name">
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Club Image</label>
-                        <input v-model="image" v-text="club.image" type="text" class="form-control" id="image" name="image">
+                        <input v-model="image" v-text="club.image" type="text" class="form-control custom-input" id="image" name="image">
                     </div>
                     <div class="mb-3">
                         <label for="Capacity" class="form-label">Maximum Capacity</label>
-                        <input v-model.number="capacity" v-text="club.capacity" type="number" class="form-control" id="capacity" name="capacity">
+                        <input v-model.number="capacity" v-text="club.capacity" type="number" class="form-control custom-input" id="capacity" name="capacity">
                     </div>
                     <div class="mb-3">
                         <label for="address" class="form-label">Club Address</label>
-                        <input v-model="address" v-text="club.address" type="text" class="form-control" id="address" name="address">
+                        <input v-model="address" v-text="club.address" type="text" class="form-control custom-input" id="address" name="address">
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Club Description</label>
-                        <textarea v-model="description" v-text="club.description" class="form-control" id="description" name="description"></textarea>
+                        <textarea v-model="description" v-text="club.description" class="form-control custom-input" id="description" name="description"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Submit</button>
                     <input type="hidden" name="_method" value="PUT">

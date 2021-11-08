@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-    <h1>Admin Panel</h1>
         @if ($club->name )
             @if(Session::has('message'))
                 <div class="alert alert-info">
@@ -10,6 +9,7 @@
             @endif
 
             <div class="col-md-6">
+                <h1>Admin Panel</h1>
                 <h2>{{ $club->name }}</h2>
                 <img class="club-image img-fluid" src="{{ $club->image }}" alt="">
                 <p>Useful Info:</p>
@@ -22,7 +22,7 @@
             </div>
 
             <div class="col-md-6">
-                <div class="card events-card">
+                <div class="card events-card-admin">
                     <h5 class="card-title">Upcoming Events</h5>
                      @include('components.clubs.event')
                 </div>

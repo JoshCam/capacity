@@ -7,11 +7,9 @@ body {
     color: #fdfcfd !important;
 }
 
-.event-card {
-    display: flex;
-    flex-direction: row;
-    margin: 0.2em;
-    padding: 0.2em;
+h1 {
+    margin-top: 1em !important;
+    margin-bottom: 1em !important;
 }
 
 .event-image {
@@ -32,6 +30,7 @@ body {
     text-justify: inter-word;
 }
 
+/* ######### Counter Styling ########## */
 #counter-app {
     height: 100%;
 }
@@ -48,11 +47,23 @@ body {
     margin: 0.5em;
     padding: 0.5em 1em 0.5em 1em;
     font-size: 72px;
-    border: 1px solid black;
+    border: 1px solid rgb(255, 255, 255);
 }
 
 .clicker-btn {
+    touch-action: manipulation;
     font-size: 80px;
+    color: rgb(255, 255, 255);
+    width: 100%;
+}
+
+.reset-btn {
+    margin-top: 3em;
+    font-size: 40px;
+}
+
+.modal-body {
+    color: black;
 }
 
 /* ############# SHOW CLUB CARD COMPONENT########## */
@@ -79,6 +90,15 @@ body {
 
 /* ######## EVENTS CARD DISPLAYED TO USERS ######## */
 .events-card {
+    margin-top: 8em !important;
+    background-color: #2c2a2c !important;
+    padding: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 2em;
+}
+
+.events-card-admin {
+    margin-top: 10.8em !important;
     background-color: #2c2a2c !important;
     padding: 1em;
     margin-top: 0.5em;
@@ -101,6 +121,10 @@ body {
 }
 
 .event-card {
+    display: flex;
+    flex-direction: row;
+    margin: 0.2em;
+    padding: 0.2em;
     background-color: #2c2a2c !important;
     color: #fdfcfd !important;
 }
@@ -111,4 +135,16 @@ body {
     padding: 1em;
     margin-top: 0.5em;
     margin-bottom: 1em;
+}
+
+/* ############ ADMIN FORMS  ############# */
+/* ############ Subject to change RE readability ############# */
+.edit-club-card {
+    background-color: #2c2a2c !important;
+    color: #fdfcfd !important;
+}
+
+.custom-input {
+    background-color: #4d484d !important;
+    color: #fdfcfd !important;
 }

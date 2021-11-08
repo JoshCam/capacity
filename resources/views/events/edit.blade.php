@@ -7,8 +7,8 @@
 @section('content')
     <div class="col-md-6 mb-3" id="edit-form-app">
         <h1>Update {{ $event->name }}</h1>
-        <div class="card">
-            <div class="card-body">
+        <div class="card edit-club-card">
+            <div class="card-body edit-club-card">
                 <form @submit="checkForm" action="{{ route('events.update', $event) }}" method="POST">
                     @csrf
                     <p v-if="errors.length">
@@ -19,30 +19,30 @@
                     </p>
                     <div class="mb-3">
                         <label for="name" class="form-label">Event Name:</label>
-                        <input v-model="name" v-text="event.name" type="text" class="form-control" id="name" name="name">
+                        <input v-model="name" v-text="event.name" type="text" class="form-control custom-input" id="name" name="name">
                     </div>
                     <div class="mb-3">
                         <label for="image" class="form-label">Event Image</label>
-                        <input v-model="image" v-text="event.image" type="text" class="form-control" id="image" name="image">
+                        <input v-model="image" v-text="event.image" type="text" class="form-control custom-input" id="image" name="image">
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea v-model.number="description" v-text="event.description" type="text" class="form-control" id="description" name="description">
+                        <textarea v-model.number="description" v-text="event.description" type="text" class="form-control custom-input" id="description" name="description">
                         </textarea>
                     </div>
                     <div class="mb-3">
                         <label for="date" class="form-label">Date</label>
-                        <input v-model="date" v-text="event.date" type="date" class="form-control" id="date" name="date">
+                        <input v-model="date" v-text="event.date" type="date" class="form-control custom-input" id="date" name="date">
                     </div>
                     <div class="mb-3">
                         <label for="start_time" class="form-label">Start Time</label>
-                        <input v-model="start_time" v-text="event.start_time" type="time" class="form-control" id="start_time" name="start_time">
+                        <input v-model="start_time" v-text="event.start_time" type="time" class="form-control custom-input" id="start_time" name="start_time">
                     </div>
                     <div class="mb-3">
                         <label for="finish_time" class="form-label">Finish Time</label>
-                        <input v-model="finish_time" v-text="event.finish_time" type="time" class="form-control" id="finish_time" name="finish_time">
+                        <input v-model="finish_time" v-text="event.finish_time" type="time" class="form-control custom-input" id="finish_time" name="finish_time">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" :disabled="clean">Submit</button>
                     <!-- :disabled="clean" - add to button above to implement disabling btn if form is clean -->
                     <input type="hidden" name="_method" value="PUT">
                 </form>
@@ -84,21 +84,19 @@
                     },
                 },
                 watch: {
-                    'event.name': function () {
+                    'name': function () {
                         this.dirty = true;
                     }
                 },
                 methods: {
                     checkForm(e) {
                         if(this.name && this.image && this.description && this.date && this.start_time && this.finish_time) {
-                            console.log("all good")
                             return true
                         }
                         
                         this.errors = [];
 
                         if (!this.name) {
-                            console.log("need name");
                             this.errors.push('Name required.');
                         }
                         if (!this.image) {
