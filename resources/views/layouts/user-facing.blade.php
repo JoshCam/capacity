@@ -10,6 +10,22 @@
             return {
               search: "",
               clubSuggestions: [],
+              sortByOptions : [
+                {
+                  display: "name",
+                  sortBy:"name"
+                },
+                {
+                  display: "Most To Least busy",
+                  sortBy:"ratio",
+                  direction: 'desc'
+                },
+                {
+                  display: "Least To Most busy", 
+                  sortBy:"ratio",
+                  direction: 'asc'
+                }
+              ]
             };
         },
         mounted() {},
@@ -34,6 +50,9 @@
           onClubSearchResult(response) {
             this.clubSuggestions = response.data.data;
           },
+          getSortingUrl(option) {
+            return route("clubs.index", {sort : option.sortBy, direction: option.direction})
+          }
         },
     });
 </script>
