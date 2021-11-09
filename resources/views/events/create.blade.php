@@ -15,6 +15,7 @@
                 <div class="mb-3">
                     <label for="name" class="form-label">Event Name:</label>
                     <input
+                        v-model="name"
                         type="text"
                         class="form-control custom-input"
                         id="name"
@@ -24,6 +25,7 @@
                 <div class="mb-3">
                     <label for="image" class="form-label">Image:</label>
                     <input
+                        v-model="image"
                         type="text"
                         class="form-control custom-input"
                         id="image"
@@ -35,6 +37,7 @@
                         >Description:</label
                     >
                     <textarea
+                        v-model="description"
                         type="text"
                         class="form-control custom-input"
                         id="description"
@@ -44,6 +47,7 @@
                 <div class="mb-3">
                     <label for="date" class="form-label">date:</label>
                     <input
+                        v-model="date"
                         type="date"
                         class="form-control custom-input"
                         id="date"
@@ -55,6 +59,7 @@
                         >Start Time:</label
                     >
                     <input
+                        v-model="start_time"
                         type="time"
                         class="form-control custom-input"
                         id="start_time"
@@ -64,6 +69,7 @@
                 <div class="mb-3">
                     <label for="finish_time" class="form-label">End Time:</label>
                     <input
+                        v-model="finish_time"
                         type="time"
                         class="form-control custom-input"
                         id="finish_time"

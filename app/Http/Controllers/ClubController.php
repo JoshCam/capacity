@@ -16,9 +16,15 @@ class ClubController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($sortBy = 'name')
     {
-        $clubs = Club::paginate(9);
+        if ($sortBy == "name") {
+           $clubs = Club::orderBy('name')->paginate(9);
+            return view('clubs.index', compact('clubs')); 
+        }
+
+
+        $clubs = Club::SelectRaw('* , occupancy / capacity as ratio')->orderBy('ratio')->paginate(9);
         return view('clubs.index', compact('clubs'));
     }
 
