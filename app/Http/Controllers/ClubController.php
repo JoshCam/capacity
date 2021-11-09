@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SortRequest;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateClubRequest;
 use App\Http\Resources\ClubResource;
@@ -16,10 +17,13 @@ class ClubController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index(SortRequest $request)
     {
-        $sortBy = $request->input('sort', 'name');
-        $direction = $request->input("direction", "asc");
+        // Sorts clubs from filter selected by user
+        $request->validated();
+        
+        $sortBy = $request->getSort();
+        $direction = $request->getSortDirection();
         $clubs = Club::SelectRaw('* , occupancy / capacity as ratio')->orderBy($sortBy, $direction)->paginate(9);
         return view('clubs.index', compact('clubs'));
     }
