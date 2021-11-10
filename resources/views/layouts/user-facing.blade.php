@@ -5,7 +5,7 @@
 <script>
 
     let myVueApp = new Vue({
-        el: "#search-app",
+        el: ".search-app",
         data() {
             return {
               search: "",
@@ -28,8 +28,11 @@
               ]
             };
         },
-        mounted() {},
-        computed: {},
+        mounted() {
+        },
+        computed: {
+
+        },
         watch: {
           search() {
             this.updateClubSuggestions(this.search); 
@@ -55,5 +58,7 @@
           }
         },
     });
+
+    
 </script>
 @endsection

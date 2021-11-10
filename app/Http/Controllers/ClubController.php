@@ -145,4 +145,8 @@ class ClubController extends Controller
 
         return ClubResource::collection($clubs);
     }
+
+    public function getNearBy() {
+        return "working";
+    }
 }

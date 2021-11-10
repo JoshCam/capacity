@@ -41,8 +41,12 @@ Route::group([], function () {
 
     // Access to all Event Resources
     Route::resource("events", EventController::class)->except(['create','update']);
+
+    // View nearby clubs
+    Route::get("/nearby", [ClubController::class, 'getNearBy'])->name('clubs.nearBy');
 });
 
+// LOCAL ROUTES ONLY
 if (app()->environment('local'))
 {
     Route::get('tinker', [TinkerController::class, 'tinker'])->name('tinker');

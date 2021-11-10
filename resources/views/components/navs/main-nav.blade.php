@@ -1,16 +1,21 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="search-app navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{{ route('clubs.index') }}">Capacity</a>
-            <div id="search-app" class="d-lg-none">
+        <a
+            class="navbar-brand"
+            href="{{ route('clubs.index') }}"
+            style="margin-right:0;"
+        >Capacity</a>
+            <div class="d-lg-none">
                 <form class="d-flex mx-auto">
                     <div class="dropdown">
-                      <input
-                          v-model="search"
-                          class="form-control me-2"
-                          type="search"
-                          placeholder="Search"
-                          aria-label="Search"
-                      />
+                          <input
+                            style="width: 130px; margin-left:0;"
+                            v-model="search"
+                            class="form-control me-2"
+                            type="search"
+                            placeholder="Search"
+                            aria-label="Search"
+                          />
                       <ul class="dropdown-menu" :class="{show : clubSuggestions.length > 0}" aria-labelledby="dropdownMenuButton1">
                         <li v-for="club in clubSuggestions">
                           <a class="dropdown-item" :href="getClubUrl(club)">@{{ club.name }}</a>
@@ -18,13 +23,13 @@
                       </ul>
                     </div>
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-filter-square" viewBox="0 0 16 16">
                                 <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
                                 <path d="M6 11.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
                             </svg>
                         </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-sm-start" aria-labelledby="dropdownMenuButton1">
                             <li v-for="option in sortByOptions">
                                 <a class="dropdown-item" :href="getSortingUrl(option)">@{{ option.display }}</a>
                             </li>
@@ -51,20 +56,11 @@
                     >
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Near By</a>
+                    <a class="nav-link" href="{{ route('clubs.nearBy') }}">Near By</a>
                 </li>
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="#">Favourites</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Recommended</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Map</a>
-                </li> -->
             </ul>
 
-            <div id="search-app" class="d-none d-lg-inline">
+            <div class="d-none d-lg-inline">
                 <form class="d-flex mx-auto">
                     <div class="dropdown">
                       <input
