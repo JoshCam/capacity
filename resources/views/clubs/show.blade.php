@@ -5,7 +5,7 @@
 @section('content')
     <div class="col-md-6">
         <h1>
-            {{ $club->name }}
+            {{ $club->name }} - {{ $club->occupancy }}/{{ $club->capacity }}
         </h1>
 
         <img src="{{ $club->image }}" alt="Club Image" 

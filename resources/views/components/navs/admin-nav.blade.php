@@ -15,9 +15,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('events.create') }}">New Event</a>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
           <a class="nav-link" href="#">Stats</a>
-        </li>
+        </li> -->
         <li class="nav-item">
           <a class="nav-link" href="{{ route('admin.showClicker') }}">Clicker</a>
         </li>

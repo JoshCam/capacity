@@ -54,8 +54,8 @@
                     <a class="nav-link" href="{{ route('clubs.index') }}"
                         >Home</a
                     >
-                </li> -->
-                <!-- <li class="nav-item">
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('clubs.nearBy') }}">Near By</a>
                 </li> -->
             </ul>

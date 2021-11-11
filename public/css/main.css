@@ -148,3 +148,7 @@ h1 {
     background-color: #4d484d !important;
     color: #fdfcfd !important;
 }
+
+#edit-form-app {
+    margin-bottom: 3em;
+}

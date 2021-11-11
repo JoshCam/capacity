@@ -60,11 +60,21 @@
                         capacity: club.capacity,
                         address: club.address,
                         description: club.description,
+
+                        dirty: false,
                     };
                 },
                 mounted() {},
-                computed: {},
-                watch: {},
+                computed: {
+                    clean() {
+                        return !this.dirty
+                    },
+                },
+                watch: {
+                    'name': function () {
+                        this.dirty = true;
+                    }
+                },
                 methods: {
                     checkForm(e) {
                         if(this.name && this.image && this.capacity && this.address && this.description) {
