@@ -21,6 +21,16 @@ class UserSeeder extends Seeder
         $this->createAdminThree();
         $this->createAdminFour();
         $this->createAdminFive();
+        $this->createAdminSix();
+        $this->createAdminSeven();
+        $this->createAdminEight();
+        $this->createAdminNine();
+        $this->createAdminTen();
+        $this->createAdminEleven();
+        $this->createAdminTwelve();
+        $this->createAdminThirteen();
+        $this->createAdminFourteen();
+        $this->createAdminFifteen();
     }
 
     public function createAdminOne() {
@@ -80,6 +90,136 @@ class UserSeeder extends Seeder
         $user = $club->users()->create([
             'name' => 'Basement45',
             'email' => 'basement45@admin.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        $user->assignRole('admin');
+    }
+
+    public function createAdminSix() {
+        $club = Club::find(6);
+        $user = $club->users()->create([
+            'name' => 'OMG Club',
+            'email' => 'omg@admin.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        $user->assignRole('admin');
+    }
+
+    public function createAdminSeven() {
+        $club = Club::find(7);
+        $user = $club->users()->create([
+            'name' => 'Thekla',
+            'email' => 'thekla@admin.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        $user->assignRole('admin');
+    }
+
+    public function createAdminEight() {
+        $club = Club::find(8);
+        $user = $club->users()->create([
+            'name' => 'Lola Lo',
+            'email' => 'lolalo@admin.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        $user->assignRole('admin');
+    }
+
+    public function createAdminNine() {
+        $club = Club::find(9);
+        $user = $club->users()->create([
+            'name' => 'Cosies',
+            'email' => 'cosies@admin.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        $user->assignRole('admin');
+    }
+
+    public function createAdminTen() {
+        $club = Club::find(10);
+        $user = $club->users()->create([
+            'name' => 'The Black Swan',
+            'email' => 'theblackswan@admin.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        $user->assignRole('admin');
+    }
+
+    public function createAdminEleven() {
+        $club = Club::find(11);
+        $user = $club->users()->create([
+            'name' => "The Crofters' Rights",
+            'email' => 'thecroftersrights@admin.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        $user->assignRole('admin');
+    }
+
+    public function createAdminTwelve() {
+        $club = Club::find(12);
+        $user = $club->users()->create([
+            'name' => "Attic Bar",
+            'email' => 'atticbar@admin.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        $user->assignRole('admin');
+    }
+
+        public function createAdminThirteen() {
+        $club = Club::find(13);
+        $user = $club->users()->create([
+            'name' => "Dojo Lounge",
+            'email' => 'dojolounge@admin.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        $user->assignRole('admin');
+    }
+
+        public function createAdminFourteen() {
+        $club = Club::find(14);
+        $user = $club->users()->create([
+            'name' => "Strange Brew",
+            'email' => 'strangebrew@admin.com',
+            'email_verified_at' => now(),
+            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'remember_token' => Str::random(10),
+        ]);
+
+        $user->assignRole('admin');
+    }
+
+        public function createAdminFifteen() {
+        $club = Club::find(15);
+        $user = $club->users()->create([
+            'name' => "The Island",
+            'email' => 'theisland@admin.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),

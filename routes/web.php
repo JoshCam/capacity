@@ -53,7 +53,7 @@ if (app()->environment('local'))
     
     Route::get('/test', function () {
         return Club::first()->getOccupancy();
-});
+    });
 }
 
 
