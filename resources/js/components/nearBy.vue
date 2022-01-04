@@ -1,5 +1,7 @@
 <template>
-    <div>test</div>
+    <div>
+        <p v-for="club in clubs">{{ club.name }}</p>
+    </div>
 </template>
 
 <script>
@@ -8,23 +10,29 @@ export default {
     components: {},
     data() {
         return {
-            clubs: {},
+            clubs: "",
         };
     },
+
     mounted() {
-        window.axios
-            .get("/api/nearBy/")
-            .then(function (response) {
-                // handle success
-                console.log(response);
-            })
-            .catch(function (error) {
-                // handle error
-                console.log(error);
-            });
+        this.getClubs();
     },
 
-    methods: {},
+    methods: {
+        getClubs() {
+            window.axios
+                .get("/api/nearBy/")
+                .then((response) => {
+                    // handle success
+                    // console.log(response.data);
+                    this.clubs = response.data;
+                })
+                .catch(function (error) {
+                    // handle error
+                    console.log(error);
+                });
+        },
+    },
 };
 </script>
 

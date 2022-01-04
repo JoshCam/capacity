@@ -4027,24 +4027,33 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "NearBy",
   components: {},
   data: function data() {
     return {
-      clubs: {}
+      clubs: ""
     };
   },
   mounted: function mounted() {
-    window.axios.get("/api/nearBy/").then(function (response) {
-      // handle success
-      console.log(response);
-    })["catch"](function (error) {
-      // handle error
-      console.log(error);
-    });
+    this.getClubs();
   },
-  methods: {}
+  methods: {
+    getClubs: function getClubs() {
+      var _this = this;
+
+      window.axios.get("/api/nearBy/").then(function (response) {
+        // handle success
+        // console.log(response.data);
+        _this.clubs = response.data;
+      })["catch"](function (error) {
+        // handle error
+        console.log(error);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -21610,7 +21619,13 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("test")])
+  return _c(
+    "div",
+    _vm._l(_vm.clubs, function (club) {
+      return _c("p", [_vm._v(_vm._s(club.name))])
+    }),
+    0
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
