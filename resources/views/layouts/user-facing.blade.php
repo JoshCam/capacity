@@ -2,8 +2,8 @@
 
 @section('scripts')
 <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="{{ mix('/js/app.js') }}"></script>
 <script>
-
     let myVueApp = new Vue({
         el: ".search-app",
         data() {

@@ -147,6 +147,10 @@ class ClubController extends Controller
     }
 
     public function getNearBy() {
-        return "working";
+        return view('clubs.near-by');
+    }
+
+    public function getNearByClubs() {
+        return Club::all();
     }
 }

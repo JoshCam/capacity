@@ -24,3 +24,5 @@ Route::put('/clubs/{club}', [ClubController::class, 'updateOccupancy'])->name('c
 
 // API to search clubs in DB
 Route::get('/clubs', [clubController::class, 'getClubs'])->name('clubs.search');
+
+Route::get('/nearBy', [clubController::class, 'getNearByClubs'])->name('clubs.nearByClubs');
