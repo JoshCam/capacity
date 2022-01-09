@@ -1,13 +1,20 @@
 <template>
-    <div>
-        <p v-for="club in clubs">{{ club.name }}</p>
+    <div class="row">
+        <club-card
+            v-for="club in clubs"
+            :key="club.id"
+            :club="club"
+            @clicked="onClicked"
+            class="col-md-4 mb-3"
+        />
     </div>
 </template>
 
 <script>
+import ClubCard from "./widgets/clubCard.vue";
 export default {
     name: "NearBy",
-    components: {},
+    components: { ClubCard },
     data() {
         return {
             clubs: "",
@@ -31,6 +38,9 @@ export default {
                     // handle error
                     console.log(error);
                 });
+        },
+        onClicked(clubId) {
+            console.log(clubId);
         },
     },
 };
