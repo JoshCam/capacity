@@ -26,3 +26,5 @@ Route::put('/clubs/{club}', [ClubController::class, 'updateOccupancy'])->name('c
 Route::get('/clubs', [clubController::class, 'getClubs'])->name('clubs.search');
 
 Route::get('/nearBy', [clubController::class, 'getNearByClubs'])->name('clubs.nearByClubs');
+
+Route::post('/radius', [clubController::class, 'getClubsInRadius'])->name('clubs.ClubsInRadius');

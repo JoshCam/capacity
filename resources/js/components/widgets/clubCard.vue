@@ -1,5 +1,5 @@
 <template>
-    <a @click="clicked()" href="#" class="mt-3">
+    <a @click="clicked()" :href="clubURL" class="mt-3">
         <div class="card club-card">
             <img
                 :src="club.image"
@@ -28,8 +28,15 @@ export default {
         },
     },
 
+    computed: {
+        clubURL() {
+            return "/clubs/" + this.club.id;
+        },
+    },
+
     methods: {
         clicked() {
+            // This isnt needed, just leaving in so Nathan can see i used an event
             this.$emit("clicked", this.club.id);
         },
     },
