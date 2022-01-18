@@ -1,10 +1,9 @@
 <template>
     <div class="row">
         <club-card
-            v-for="club in clubs"
+            v-for="club in sortedClubs"
             :key="club.id"
             :club="club"
-            @clicked="onClicked"
             class="col-md-4 mb-3"
         />
     </div>
@@ -17,16 +16,13 @@ export default {
     components: { ClubCard },
     data() {
         return {
-            clubs: "",
+            clubs: [],
+            sortedClubs: [],
             userCoords: {},
         };
     },
 
     mounted() {
-        // Oder should be:
-        // Get location
-        // Get clubs near that location
-        // ATM we've got it the wrong way around just for testing/proving our vue components
         this.getLocation();
         this.getClubsInRadius();
     },
@@ -34,6 +30,7 @@ export default {
     watch: {
         userCoords: function () {
             this.getClubsInRadius(this.userCoords);
+            this.sortClubs(this.clubs);
         },
     },
 
@@ -53,9 +50,12 @@ export default {
             });
         },
 
-        onClicked(clubId) {
-            // This corresponds to an event that isn't actually needed
-            console.log(clubId);
+        sortClubs(clubs) {
+            console.log("runs");
+            clubs.sort((a, b) => {
+                return a.distance - b.distance;
+            });
+            this.sortedClubs = clubs;
         },
     },
 };

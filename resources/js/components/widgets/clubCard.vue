@@ -13,6 +13,12 @@
                     capacity:
                     {{ club.occupancy }}/{{ club.capacity }}
                 </p>
+                <p>
+                    {{
+                        Math.round((club.distance + Number.EPSILON) * 100) /
+                        100
+                    }}km
+                </p>
             </div>
         </div>
     </a>
@@ -28,18 +34,17 @@ export default {
         },
     },
 
+    data() {
+        return {};
+    },
+
     computed: {
         clubURL() {
             return "/clubs/" + this.club.id;
         },
     },
 
-    methods: {
-        clicked() {
-            // This isnt needed, just leaving in so Nathan can see i used an event
-            this.$emit("clicked", this.club.id);
-        },
-    },
+    methods: {},
 };
 </script>
 
