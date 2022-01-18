@@ -10,6 +10,11 @@
 </template>
 
 <script>
+//
+//
+// THIS IS ALMOST DONE IT NEEDS TO HANDLE ERRORS - IF THERE ARE NO NEARBY CLUBS IT CRASHES!
+//
+//
 import ClubCard from "./widgets/clubCard.vue";
 export default {
     name: "NearBy",
@@ -45,17 +50,14 @@ export default {
         },
 
         getClubsInRadius(userCoords) {
+            let clubs = [];
             window.axios.post("/api/radius/", userCoords).then((response) => {
-                this.clubs = response.data;
+                clubs = response.data;
+                clubs.sort((a, b) => {
+                    return a.distance - b.distance;
+                });
+                this.sortedClubs = clubs;
             });
-        },
-
-        sortClubs(clubs) {
-            console.log("runs");
-            clubs.sort((a, b) => {
-                return a.distance - b.distance;
-            });
-            this.sortedClubs = clubs;
         },
     },
 };

@@ -153,11 +153,6 @@ class ClubController extends Controller
         return view('clubs.near-by');
     }
 
-    public function getNearByClubs() {
-        // Bit of a placeholder, just returns all clubs
-        // Will be replaced with getClubsInRadius
-        return Club::all();
-    }
 
     public function getClubsInRadius(Request $request) {
         // Function that returns clubs within 2km
@@ -174,7 +169,3 @@ class ClubController extends Controller
     }
 }
 
-// Its a bit messy ATM with the nearby routes, getNearByClubs is kind of a place holder
-// It just sends in data to the NearBy Route so we can see the vue components
-// getClubsInRadius is the route that will actually return all the clubs nearby
-// I think eventually we will be getting rid of getNearByClubs
