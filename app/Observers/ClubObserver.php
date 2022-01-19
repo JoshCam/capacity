@@ -26,9 +26,9 @@ class ClubObserver
      */
     public function updated(Club $club)
     {
-        // if ($club->occupancy == $club->capacity * 0.8) {
+        if ($club->occupancy == $club->capacity * 0.8) {
             NotifyUsersOfCapacity::dispatch($club);
-        // }
+        }
     }
 
     /**
