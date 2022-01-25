@@ -18,7 +18,7 @@ class VoodooSmsSender implements SmsSender
                 'Authorization' => $apiKey,
             ])->post('https://api.voodoosms.com/sendsms', [
                 'to' => $mobile,
-                'from' => "VoodooSMS",
+                'from' => "Emergency Alert",
                 'msg' => $message,
             ]);
 
