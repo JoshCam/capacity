@@ -17,8 +17,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->bind(SmsSender::class, VoodooSmsSender::class);
-        // $this->app->bind(SmsSender::class, SmsGlobalSender::class);
+        // $this->app->bind(SmsSender::class, VoodooSmsSender::class);
+        $this->app->bind(SmsSender::class, SmsGlobalSender::class);
     }
 
     /**

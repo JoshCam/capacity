@@ -17,10 +17,13 @@ class SmsGlobalSender implements SmsSender
 
         $response = Http::withHeaders([
                 'Authorization' => $apiKey,
-            ])->post('https://api.voodoosms.com/sendsms', [
+            ])->post('https://api.smsglobal.com/http-api.php', [
+                'action' => 'sendsms',
+                'user' => 'JoshCampden',
+                'password' => 'Robot7890!',
                 'to' => $mobile,
                 'from' => "Emergency Alert",
-                'msg' => $message,
+                'text' => $message,
             ]);
 
         Log::info($response);
