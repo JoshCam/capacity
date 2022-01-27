@@ -13,14 +13,14 @@ class SmsGlobalSender implements SmsSender
     {
         Log::info('Using SmsGlobal to send SMS');
 
-        $apiKey = "346805f6b45c657bafd188f8e4767430";
+        $apiKey = env("SMS_GLOBAL_API_KEY");
 
         $response = Http::withHeaders([
                 'Authorization' => $apiKey,
             ])->post('https://api.smsglobal.com/http-api.php', [
                 'action' => 'sendsms',
                 'user' => 'JoshCampden',
-                'password' => 'Robot7890!',
+                'password' => env("SMS_GLOBAL_PASSWORD"),
                 'to' => $mobile,
                 'from' => "Emergency Alert",
                 'text' => $message,

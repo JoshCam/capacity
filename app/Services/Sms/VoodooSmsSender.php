@@ -12,7 +12,7 @@ class VoodooSmsSender implements SmsSender
     {
         Log::info('Using Voodoo to send SMS');
 
-        $apiKey = "0RsxFYTaP8mzfej2DmJKHFFLd1bteYyVrgIx6bNMZzB6Uk";
+        $apiKey = env("VOODOO_SMS_API_KEY");
 
         $response = Http::withHeaders([
                 'Authorization' => $apiKey,
