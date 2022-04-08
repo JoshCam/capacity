@@ -49,7 +49,7 @@ Route::group([], function () {
 // LOCAL ROUTES ONLY
 if (app()->environment('local'))
 {
-    Route::get('tinker', [TinkerController::class, 'tinker'])->name('tinker');
+    // Route::get('/tinker', [TinkerController::class, 'tinker'])->name('tinker');
     
     Route::get('/test', function () {
         return Club::first()->getOccupancy();

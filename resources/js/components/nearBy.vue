@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="row" v-if="sortedClubs.length > 0">
+        <div class="row" v-cloak v-if="sortedClubs.length > 0">
             <club-card
                 v-for="club in sortedClubs"
                 :key="club.id"
@@ -17,7 +17,7 @@
 <script>
 //
 //
-// THIS IS ALMOST DONE IT NEEDS TO HANDLE ERRORS - IF THERE ARE NO NEARBY CLUBS IT CRASHES!
+// THIS IS ALMOST DONE I JUST NEED TO GIT RID OF THE FILTER BUTTON ON THE NAV BAR!
 //
 //
 import ClubCard from "./widgets/clubCard.vue";
