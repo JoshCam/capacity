@@ -8,7 +8,9 @@ use App\Http\Requests\UpdateClubRequest;
 use App\Http\Resources\ClubResource;
 use App\Models\Club;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class ClubController extends Controller
 {
@@ -67,9 +69,9 @@ class ClubController extends Controller
         return view('clubs.show' , compact('club', 'events'));
     }
 
-    // #### HOME PAGE FOR ADMINS #### 
     public function showAdmin(Club $club)
     {
+        // #### HOME PAGE FOR ADMINS #### 
         $user = Auth::user();
         $club = Auth::user()->club;
         $events = $club->events;
@@ -129,11 +131,13 @@ class ClubController extends Controller
      */
     public function destroy(Club $club)
     {
+        // Function to delete club
         $club->delete();
     }
 
     public function getClubs(Request $request)
     {
+        // dynamic search function that returns clubs like the search input
         $params = $request->validate([
             'search' => 'required|min:1'
         ]);
@@ -147,6 +151,27 @@ class ClubController extends Controller
     }
 
     public function getNearBy() {
-        return "working";
+        //provides HTTP response for nearby clubs call (just shows the correct blade temp)
+        return view('clubs.near-by');
+    }
+
+
+    public function getClubsInRadius(Request $request) {
+        // Function that returns clubs within 2km
+
+        // TEST DATA - MY HOME COORDS IN BRIS
+        // 51.45379047350099, -2.589045670526551
+
+        // THE CODE FOR THE USERS LIVE LOCATION
+        // $request->lat, $request->lng
+
+        $clubs = Club::forClubsNear(51.45379047350099, -2.589045670526551)->get();
+
+        if (count($clubs) === 0  ) {
+            return Response("no content", 204);
+        };
+
+        return $clubs;
     }
 }
+

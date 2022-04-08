@@ -34,4 +34,18 @@ class Club extends Model
             return Club::find(1)->occupancy;
         });
     }
+
+    public function scopeForClubsNear($query, $lat, $lng, $radius = 2) {
+
+     $haversine = "(6371 * acos(cos(radians($lat)) 
+                     * cos(radians(clubs.lat)) 
+                     * cos(radians(clubs.lng) 
+                     - radians($lng)) 
+                     + sin(radians($lat)) 
+                     * sin(radians(clubs.lat))))";
+     return $query
+        ->select() //pick the columns you want here.
+        ->selectRaw("{$haversine} AS distance")
+        ->whereRaw("{$haversine} < ?", [$radius]);
+	}
 }

@@ -57,9 +57,9 @@
                     </li>
                 @endauth
 
-                <!-- <li class="nav-item">
-                    <a class="nav-link" href="{{ route('clubs.nearBy') }}">Near By</a>
-                </li> -->
+                <li class="nav-item ms-3">
+                    <a class="nav-link" href="{{ route('clubs.nearBy') }}">What's Near By</a>
+                </li>
             </ul>
 
             <div class="d-none d-lg-inline">

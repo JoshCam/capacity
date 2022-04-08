@@ -24,3 +24,5 @@ Route::put('/clubs/{club}', [ClubController::class, 'updateOccupancy'])->name('c
 
 // API to search clubs in DB
 Route::get('/clubs', [clubController::class, 'getClubs'])->name('clubs.search');
+
+Route::post('/radius', [clubController::class, 'getClubsInRadius'])->name('clubs.ClubsInRadius');

@@ -56,7 +56,7 @@ if (app()->environment('local'))
     });
 }
 
-
+// Default login dashboard
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
