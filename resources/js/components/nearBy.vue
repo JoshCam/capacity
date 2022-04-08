@@ -56,11 +56,14 @@ export default {
         getClubsInRadius(userCoords) {
             let clubs = [];
             window.axios.post("/api/radius/", userCoords).then((response) => {
-                console.log(response.data.length);
+                console.log(response);
+                if (response.data.length == 0) return;
+
                 clubs = response.data;
                 clubs.sort((a, b) => {
                     return a.distance - b.distance;
                 });
+
                 this.sortedClubs = clubs;
             });
         },

@@ -8,7 +8,9 @@ use App\Http\Requests\UpdateClubRequest;
 use App\Http\Resources\ClubResource;
 use App\Models\Club;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class ClubController extends Controller
 {
@@ -164,6 +166,10 @@ class ClubController extends Controller
         // $request->lat, $request->lng
 
         $clubs = Club::forClubsNear(51.45379047350099, -2.589045670526551)->get();
+
+        if (count($clubs) === 0  ) {
+            return Response("no content", 204);
+        };
 
         return $clubs;
     }
